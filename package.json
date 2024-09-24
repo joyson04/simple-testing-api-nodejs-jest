@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "jest",
-    "test-w": "jest --watchAll"
+    "tests": "jest",
+    "test-w": "jest --watchAll",
+    "test": "jest  --coverage"
   },
   "keywords": [],
   "author": "Rahman Fadhil <rhmnfadhil@gmail.com> (https://rahmanfadhil.com/)",
