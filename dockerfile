@@ -14,6 +14,6 @@ ENV NODE_ENV=development
 
 LABEL  Develop=Samples,test
 
-EXPOSE 3000
+EXPOSE 8000
 
 CMD [ "node" ,"index.js"]
