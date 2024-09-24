@@ -7,6 +7,7 @@
     "start": "node index.js",
     "tests": "jest",
     "test-w": "jest --watchAll",
+    "new-test":"jest tests/server.test.js",
     "test": "jest  --coverage"
   },
   "keywords": [],

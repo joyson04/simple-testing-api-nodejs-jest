@@ -1,0 +1,77 @@
+// trivy fs --scanners --pkg-types npm --format html --output report.html .
+
+
+pipeline {
+    agent any
+    
+    environment{
+        SCANNER_HOME=tool 'sonar-scanner'
+    }
+    
+
+    stages {
+        stage('Git Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/joyson04/simple-testing-api-nodejs-jest.git'
+            }
+        }
+        
+        stage('Depency Nodejs') {
+            steps {
+                nodejs('node') {
+                    sh "npm install" 
+                }
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                nodejs('node') {
+                    sh "npm run tests" 
+                } 
+            }
+        }
+        
+        
+        stage('Sonarqube Analysis') {
+            steps {
+                withSonarQubeEnv('sonar') {
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=NodeJSTest -Dsonar.projectKey=NodeJSTest \
+                        -Dsonar.sources=. -Dsonar.tests=. -Dsonar.test.inclusions=**/*.test.js -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info ''' 
+                }
+            }
+        }
+
+        stage('Quality gate check') {
+            steps {
+               timeout(time: 1, unit: 'HOURS') {
+                    waitForQualityGate abortPipeline: true // minimum code will coverage pass the code ,other pipeline fail
+               }
+            }
+        }
+        
+         stage('Trivy File scan') {
+            steps {
+                sh "trivy fs --scanners vuln package.json " 
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh "docker build -t aravindh05/jest-sample:latest . " 
+            }
+        }
+
+        stage('Push') {
+            steps {
+               script{
+                    withDockerRegistry(credentialsId: 'hub-docker')  {
+                        sh "docker push aravindh05/jest-sample:latest"
+                    }
+               }
+            }
+        }
+    }
+}
+
+
