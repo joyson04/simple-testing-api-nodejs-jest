@@ -18,3 +18,10 @@ npm start
 sonarqube :
 
 ![Screenshot from 2024-09-26 13-58-03](https://github.com/user-attachments/assets/5b27e0d5-692b-4082-9d7d-eb249277b937)
+
+
+
+OWASP Dependency Check:
+
+
+![Screenshot from 2024-09-26 14-01-37](https://github.com/user-attachments/assets/83e3fdda-7438-46ac-933d-accd2a7bb01d)
