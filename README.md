@@ -15,4 +15,3 @@ npm install
 npm start
 ```
 
-/home/aravindh/Pictures/Screenshots/Screenshot from 2024-09-26 13-58-03.png
