@@ -1,3 +1,6 @@
+![Untitled Diagram drawio](https://github.com/user-attachments/assets/beebe7dd-227c-4897-9d3e-90b5e7a00da0)
+
+
 # Testing NodeJs/Express API with Jest and Supertest
 
 Why you should write tests?
@@ -25,3 +28,6 @@ OWASP Dependency Check:
 
 
 ![Screenshot from 2024-09-26 14-01-37](https://github.com/user-attachments/assets/83e3fdda-7438-46ac-933d-accd2a7bb01d)
+
+
+
