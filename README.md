@@ -1,5 +1,6 @@
 
-![2](https://github.com/user-attachments/assets/67a5251e-a539-4db5-a522-233c014647cb)
+
+![3](https://github.com/user-attachments/assets/1caa1bf7-719a-4fbd-8d81-42414b7e7c3f)
 
 
 # Testing NodeJs/Express API with Jest and Supertest
