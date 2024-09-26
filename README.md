@@ -15,3 +15,6 @@ npm install
 npm start
 ```
 
+sonarqube :
+
+![Screenshot from 2024-09-26 13-58-03](https://github.com/user-attachments/assets/5b27e0d5-692b-4082-9d7d-eb249277b937)
