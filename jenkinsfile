@@ -1,5 +1,3 @@
-// trivy fs --scanners --pkg-types npm --format html --output report.html .
-
 
 pipeline {
     agent any
@@ -49,10 +47,17 @@ pipeline {
                }
             }
         }
-        
-         stage('Trivy File scan') {
+
+        stage('Trivy Json  Depency Test') {
             steps {
-                sh "trivy fs --scanners vuln package.json " 
+                sh "trivy fs -f json --include-dev-deps .  -o  coverage/depency.html  " 
+            }
+        }
+
+        stage('OWASP Dependency-check') {
+            steps {
+                dependencyCheck additionalArguments: ' --scan . ', odcInstallation: 'Dependency-check'
+                    dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
 
@@ -61,6 +66,13 @@ pipeline {
                 sh "docker build -t aravindh05/jest-sample:latest . " 
             }
         }
+
+        stage('General Test') {
+            steps {
+                sh "trivy image -f table -o results_old.html aravindh05/jest-sample:latest" 
+            }
+        }
+        
 
         stage('Push') {
             steps {
