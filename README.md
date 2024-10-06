@@ -11,6 +11,7 @@ To guarantee that new code works as intended.
 
 
 ### Project setup
+
 ```
 npm install
 ```
@@ -19,6 +20,8 @@ npm install
 ```
 npm start
 ```
+
+![Untitled Diagram drawio](https://github.com/user-attachments/assets/006476f9-4eeb-4d1f-bc21-765b98f6651c)
 
 sonarqube :
 
